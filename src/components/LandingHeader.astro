@@ -1,0 +1,59 @@
+---
+import Logo from './Logo.astro';
+---
+
+<header
+	class="py-3 px-10 flex items-center fixed top-0 w-full justify-between z-40 text-current" id="landing-header"
+>
+	<div class="flex flex-grow basis-0">
+		<Logo />
+	</div>
+	<nav>
+		<ul
+			class="flex text-sm [&>li>a]:font-semibold [&>li>a]:text-current [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
+		>
+			<li><a href="#">Model S</a></li>
+			<li><a href="#">Model 3</a></li>
+			<li><a href="#">Model X</a></li>
+			<li><a href="#">Model Y</a></li>
+			<li><a href="#">Powerwall</a></li>
+			<li><a href="#">Carga</a></li>
+		</ul>
+	</nav>
+
+	<nav class="flex flex-grow basis-0 justify-end">
+		<ul
+			class="flex text-sm [&>li>a]:font-semibold [&>li>a]:text-current [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
+		>
+			<li><a href="#">Soporte</a></li>
+			<li><a href="#">Tienda</a></li>
+			<li><a href="#">Cuenta</a></li>
+			<li><a href="#">Menú</a></li>
+		</ul>
+	</nav>
+</header>
+
+
+<script>
+	const headerElem = document.querySelector('#landing-header') as HTMLElement// $ convention to mean DOM elem.
+	const observerOptions = {
+		root: null, 
+		rootMargin: '0px', // en cuanto se vea el elem.
+		threshold: 0.90 // % de visibilidad del elemento
+	}
+
+	const observer = new IntersectionObserver(entries =>{
+		entries.forEach(entry =>{
+			const { isIntersecting} = entry;
+			if (isIntersecting) {
+				const color = entry.target.getAttribute('data-header-color')
+				headerElem.style.color = color;
+			}
+		})
+	},observerOptions)
+
+	const sectionElems = document.querySelectorAll('.landing-section')
+	sectionElems.forEach(section => {
+		observer.observe(section)
+	});
+</script>
