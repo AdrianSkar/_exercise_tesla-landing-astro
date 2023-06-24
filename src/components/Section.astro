@@ -1,0 +1,28 @@
+---
+const { color, title, subtitle } = Astro.props;
+const textColor = `text-${color}`;
+---
+
+<section
+	class="landing-section h-screen w-screen bg-black text-center relative overflow-hidden"
+	data-header-color={color}
+>
+	<div class="z-30 relative h-full flex flex-col">
+		<header>
+			<h2 class={`${textColor} pt-40 text-[40px] font-medium`}>
+				{title}
+			</h2>
+			<p class={`${textColor} text-sm`}>
+				{subtitle}
+			</p>
+		</header>
+
+		<footer class="flex flex-grow justify-end flex-col pb-20">
+				<slot name="footer" />
+		</footer>
+	</div>
+	<!-- <div class="absolute top-0 bottom-0 h-full w-full z-10"> -->
+	<div class="absolute top-0 bottom-0 z-10">
+		<slot name="bg-media" />
+	</div>
+</section>

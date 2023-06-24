@@ -1,33 +1,24 @@
-<section
-class="landing-section h-screen w-screen bg-black text-center relative overflow-hidden" data-header-color="white"
->
-<div class="z-30 relative h-full flex flex-col">
-	<header>
-		<h2 class="text-white pt-40 text-[40px] font-medium">
-			Disfrute de Tesla
-		</h2>
-		<p class="text-white text-sm">
-			Programe una prueba de conducción hoy mismo
-		</p>
-	</header>
+---
+import Section from './Section.astro';
+---
 
-	<footer class="flex flex-grow justify-end flex-col pb-20">
-		<div>
-			<a
-				href="#"
-				class="border-[3px] border-white bg-white/5 backdrop-blur-sm text-sm rounded px-10 py-2 inline-block text-white font-medium hover:bg-white hover:text-black transition-colors"
-				>Prueba de conducción</a
-			>
-		</div>
-	</footer>
-</div>
-<!-- <div class="absolute top-0 bottom-0 h-full w-full z-10"> -->
-<div class="absolute top-0 bottom-0 z-10">
+<Section
+	title="Disfrute de Tesla"
+	subtitle="Programe una prueba de conducción hoy mismo"
+	color="white"
+>
+	<div slot="footer">
+		<a
+			href="#"
+			class=`{border-[3px] border-white bg-white/5 backdrop-blur-sm text-sm rounded px-10 py-2 inline-block text-white font-medium hover:bg-white hover:text-black transition-colors}`
+			>Prueba de conducción</a
+		>
+	</div>
 	<video
+		slot="bg-media"
 		class="object-center object-cover h-full w-full"
 		autoplay
 		muted
 		loop
 		src="/video.webm"></video>
-</div>
-</section>
+</Section>
