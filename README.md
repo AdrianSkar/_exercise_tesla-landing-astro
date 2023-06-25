@@ -4,6 +4,7 @@ Following [Midudev](https://github.com/midudev)'s exercise on how to mimic Tesla
 
 
 
+![Screenshot](./screenshot.jpg)
 
 References:
 
