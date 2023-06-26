@@ -1,6 +1,7 @@
 ---
-const { color, title, subtitle, linkDecor } = Astro.props;
+const { color, title, subtitle, linkDecor, showFooterContent } = Astro.props;
 const textColor = `text-${color}`;
+import LandingFooter from './LandingFooter.astro';
 ---
 
 <section
@@ -19,6 +20,8 @@ const textColor = `text-${color}`;
 
 		<footer class="flex flex-grow justify-end flex-col pb-20">
 				<slot name="footer" />
+				<!-- Contidionally load footer: -->
+				{showFooterContent && <LandingFooter />}
 		</footer>
 	</div>
 	<div class="absolute top-0 bottom-0 h-full w-full z-10">
